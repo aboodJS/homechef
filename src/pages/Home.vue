@@ -24,18 +24,23 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section class="grid grid-rows-3 grid-cols-5">
-  <div class="grid gap-y-4">
-  <h1 class="text-[#e6e6e9] text-2xl font-bold font-[Playfair-Display]">Categories</h1>
-  <ul class="text-[#dee0e4] grid gap-y-3 content-center top-0 w-fit">
-  <CategoryBox @click="() => {
-    currentCategorey = categorey.strCategory
-    getMeals(categorey.strCategory)
-  }" v-for="categorey in categories.slice(0, 8)" :title="categorey.strCategory" :image="categorey.strCategoryThumb" :key="categorey.idCategory"></CategoryBox>
+  <section class="grid grid-cols-5">
+      <div class="flex row-span-1 col-span-full">
+        <h1 class="w-[30vw] text-[#e6e6e9] text-2xl font-bold font-[Playfair-Display]">Categories</h1>
+        <h1 class="w-[70vw] text-center text-[#e6e6e9] text-2xl font-bold font-[Playfair-Display]">{{ currentCategorey }}</h1>
+
+      </div>
+    <div class="grid gap-y-4 row-span-2 col-span-1 self-start justify-self-start">
+
+      <ul class="text-[#dee0e4] grid gap-y-3 content-center top-0 w-fit">
+        <CategoryBox @click="() => {
+          currentCategorey = categorey.strCategory
+          getMeals(categorey.strCategory)
+        }" v-for="categorey in categories.slice(0, 6)" :title="categorey.strCategory" :image="categorey.strCategoryThumb" :key="categorey.idCategory"></CategoryBox>
   </ul>
-  </div>
-  <div class="grid grid-rows-2 gap-3 grid-cols-4 row-span-1 col-span-4 self-center">
-    <RecipeBox v-for="meal in results.splice(0,6)" :name="meal.strMeal" :image="meal.strMealThumb" :meal-id="meal.idMeal"></RecipeBox>
+</div>
+<div class="grid grid-rows-2 gap-3 grid-cols-4 row-span-2 col-span-4 self-center">
+    <RecipeBox v-for="meal in results.splice(0,8)" :name="meal.strMeal" :image="meal.strMealThumb" :meal-id="meal.idMeal"></RecipeBox>
   </div>
   </section>
 
