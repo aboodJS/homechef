@@ -5,7 +5,7 @@ import { ref, type Ref } from 'vue';
 import { onMounted } from 'vue';
 
 const categories: Ref = ref([])
-const currentCategorey: Ref = ref("dessert")
+const currentCategorey: Ref = ref("Dessert")
 
 const results: Ref = ref([])
 
@@ -36,7 +36,7 @@ onMounted(async () => {
         <CategoryBox @click="() => {
           currentCategorey = categorey.strCategory
           getMeals(categorey.strCategory)
-        }" v-for="categorey in categories.slice(0, 6)" :title="categorey.strCategory" :image="categorey.strCategoryThumb" :key="categorey.idCategory"></CategoryBox>
+        }" v-for="categorey in categories.slice(0, 6)" :title="categorey.strCategory" :current="currentCategorey" :image="categorey.strCategoryThumb" :key="categorey.idCategory"></CategoryBox>
   </ul>
 </div>
 <div class="grid grid-rows-2 gap-3 grid-cols-4 row-span-2 col-span-4 self-center">
