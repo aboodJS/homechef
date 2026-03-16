@@ -34,22 +34,22 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section class="grid grid-cols-5">
-      <div class="flex row-span-1 col-span-full my-9">
-        <h1 class="w-[30vw] text-[#e6e6e9] text-2xl font-bold font-[Playfair-Display]">Categories</h1>
-        <input type="search" v-model="query" class="text-white w-96 p-3 outline-0 border border-[#394050] rounded-3xl" placeholder="Search recipes and more..." name="" id="">
+  <section class="grid grid-cols-5 max-md:grid-rows-3">
+      <div class="flex max-md:grid max-md:justify-center  row-span-1 col-span-full my-9 max-md:grid-rows-2">
+        <h1 class="md:w-[30vw] max-md:row-span-1 max-md:text-center text-[#e6e6e9] text-2xl font-bold font-[Playfair-Display]">Categories</h1>
+        <input  type="search" v-model="query" class="text-white max-md:row-span-2 max-md:w-[90vw] w-96 p-3 outline-0 border border-[#394050] rounded-3xl" placeholder="Search for recipes" name="" id="">
 
       </div>
-    <div class="grid gap-y-4 row-span-2 col-span-1 self-start justify-self-start">
+    <div class="row-span-2 col-span-1 max-md:col-span-full self-start justify-self-start max-md:justify-self-center">
 
-      <ul class="text-[#dee0e4] grid gap-y-3 content-center top-0 w-fit">
+      <ul class="text-[#dee0e4] max-md:grid-cols-2 grid gap-y-3 content-center top-0  w-fit">
         <CategoryBox @click="() => {
           currentCategorey = categorey.strCategory
           getMeals(categorey.strCategory)
         }" v-for="categorey in categories.slice(0, 6)" :title="categorey.strCategory" :current="currentCategorey" :image="categorey.strCategoryThumb" :key="categorey.idCategory"></CategoryBox>
   </ul>
 </div>
-<div class="grid overflow-y-scroll overflow-x-hidden h-112 rounded-lg auto-rows-max gap-3 grid-cols-4 row-span-2 col-span-4 self-center">
+<div class="grid max-md:row-span-3 max-md:col-span-full  overflow-y-scroll overflow-x-hidden h-112 rounded-lg auto-rows-max gap-3 max-md:grid-cols-2 grid-cols-4 row-span-2 col-span-4 self-center">
     <RecipeBox v-for="meal in filteredResults" :name="meal.strMeal" :image="meal.strMealThumb" :meal-id="meal.idMeal"></RecipeBox>
   </div>
   </section>
