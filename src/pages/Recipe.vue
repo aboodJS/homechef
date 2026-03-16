@@ -35,13 +35,13 @@ onMounted(async () => {
       <p class="font-bold">Origin: {{ details.strArea }}</p>
       <img class="w-64 rounded-lg object-cover justify-self-center" :src="details.strMealThumb" alt="">
     </div>
-       <div class="gap-3 w-[90vw]   text-center grid">
+       <div class="gap-3 justify-center text-center grid">
          <h1 class="font-bold text-xl">ingrediants</h1>
-               <ul>
-                  <li :key="i"  v-for="ing,i in ingrediants">{{ ing }}</li>
+               <ul class="grid grid-cols-4 gap-4 max-md:grid-cols-3 max-md:gap-1 justify-self-center   w-fit justify-center content-center">
+                  <li class="bg-[#394050b1] h-fit border border-gray-100 w-fit p-2 rounded-2xl" :key="i"  v-for="ing,i in ingrediants">{{ ing }}</li>
                </ul>
        </div>
-    <div class="text-center border w-[90vw] p-3 border-gray-100 rounded-lg bg-[#394050b1] ">
+    <div class="text-center border w-[90vw] p-3 border-gray-100 rounded-lg max-md:h-82 max-md:overflow-y-scroll justify-self-center bg-[#394050b1] ">
       <p class="font-bold text-2xl">Instructions</p>
       <p>{{ details.strInstructions }}</p>
 
